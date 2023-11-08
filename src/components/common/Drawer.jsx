@@ -1,5 +1,5 @@
 import React from "react";
-import { detailsArray } from "../common/NavBar";
+import { detailsArray } from "./NavBar";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch } from "react-redux";
 import { clickDrawer } from "../../app/newsSlice";

@@ -53,9 +53,12 @@ const BodySection = () => {
         </div>
         <div className="grid grid-flow-col gap-5 items-center">
           <Search />
-          <BsCardList className="text-xl" onClick={() => setGridView(false)} />
+          <BsCardList
+            className="text-xl hover:cursor-pointer"
+            onClick={() => setGridView(false)}
+          />
           <BsFillGridFill
-            className="text-xl"
+            className="text-xl hover:cursor-pointer"
             onClick={() => setGridView(true)}
           />
         </div>

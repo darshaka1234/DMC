@@ -37,7 +37,7 @@ const MonthDropdown = () => {
   return (
     <div className=" ">
       <div
-        className="flex flex-row items-center"
+        className="flex flex-row items-center hover:cursor-pointer"
         onClick={() => setOpen((prev) => !prev)}
       >
         Month{open ? <MdArrowDropUp /> : <MdArrowDropDown />}

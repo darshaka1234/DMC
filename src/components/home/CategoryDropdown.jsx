@@ -33,7 +33,7 @@ const CategoryDropdown = () => {
   return (
     <div className=" ">
       <div
-        className="flex flex-row items-center dropdown"
+        className="flex flex-row items-center dropdown hover:cursor-pointer"
         onClick={() => setOpen((prev) => !prev)}
       >
         Select Category{open ? <MdArrowDropUp /> : <MdArrowDropDown />}

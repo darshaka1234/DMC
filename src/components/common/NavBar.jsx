@@ -6,7 +6,7 @@ import { MdOutlinePermContactCalendar } from "react-icons/md";
 import logo from "../../assets/logo.png";
 import name from "../../assets/name.png";
 import { GiHamburgerMenu } from "react-icons/gi";
-import Drawer from "../news/Drawer";
+import Drawer from "./Drawer";
 import { useDispatch, useSelector } from "react-redux";
 import { clickDrawer } from "../../app/newsSlice";
 export const detailsArray = [
