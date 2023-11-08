@@ -15,7 +15,7 @@ const ListSection = () => {
     })();
   }, []);
   return (
-    <div className="max-w-xl mt-5 ml-10">
+    <div className="max-w-xl mt-5 mr-12 sm:ml-10">
       <h1 className="font-medium text-3xl mb-5 ml-10">Latest News</h1>
       {listData?.map((item) => (
         <ListCard key={item.hash?.datavalue} item={item} />

@@ -29,7 +29,7 @@ const NavBar = () => {
   const openDrawer = useSelector((state) => state.news.openDrawer);
 
   return (
-    <div className="">
+    <div>
       <div className="flex flex-row justify-between py-5 items-center">
         <div className="flex flex-row items-center">
           <div className="mr-3">
@@ -39,13 +39,18 @@ const NavBar = () => {
             <img src={name} />
           </div>
         </div>
-        {openDrawer ? <Drawer /> : ""}
-        <div>
-          <GiHamburgerMenu
-            className="sm:hidden"
-            onClick={() => dispatch(clickDrawer(true))}
-          />
-          <div className="flex flex-col sm:flex-row  sm:items-center invisible sm:visible">
+
+        <div className="flex   ">
+          {openDrawer ? (
+            ""
+          ) : (
+            <GiHamburgerMenu
+              className="sm:hidden flex "
+              onClick={() => dispatch(clickDrawer(true))}
+            />
+          )}
+
+          <div className="flex flex-col sm:flex-row  sm:items-center hidden sm:flex">
             {detailsArray.map((item) => (
               <div
                 key={item.name}
@@ -58,6 +63,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      {openDrawer ? <Drawer /> : ""}
       <hr className="my-5 -mx-12 md:-mx-24 lg:-mx-52" />
     </div>
   );

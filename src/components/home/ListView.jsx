@@ -28,7 +28,9 @@ const ListView = ({ data }) => {
             <p className="text-xs text-gray-500 mt-3">
               {short_description?.datavalue}
             </p>
-            <p className="text-xs my-2">{`By ${reporter?.datavalue}`}</p>
+            <p className="text-xs my-2">
+              {reporter?.datavalue ? `by ${reporter?.datavalue}` : ""}
+            </p>
           </div>
           <div className="self-end">
             <Link

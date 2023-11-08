@@ -38,11 +38,13 @@ const Footer = () => {
           </p>
         </div>
         {navData.map(({ name, data }) => (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5" key={name}>
             <div className="font-bold text-blue-700 text-xs mt-5">{name}</div>
             <div className="flex flex-col gap-5">
               {data.map((i) => (
-                <a className="link link-hover text-xs font-medium">{i}</a>
+                <a key={i} className="link link-hover text-xs font-medium">
+                  {i}
+                </a>
               ))}
             </div>
           </div>

@@ -17,18 +17,19 @@ const NewsCard = ({ data }) => {
   return (
     <div className="grid m-2 rounded-md content-between">
       <div>
-        <img
-          src={thumbnail?.datavalue.fileUrl}
-          alt={title?.datavalue}
-          className="rounded-lg w-full h-52"
-        />
+        <div
+          style={{ backgroundImage: `url(${thumbnail?.datavalue.fileUrl})` }}
+          className="rounded-lg w-full h-52 bg-cover"
+        ></div>
         <div className="flex flex-row mt-2">
           <BiCalendar className="" />
           <p className="text-xs ml-3">{convertDate(news_date?.datavalue)}</p>
         </div>
         <h1 className="font-medium text-sm my-2">{title?.datavalue}</h1>
         <p className="text-xs text-gray-500">{short_description?.datavalue}</p>
-        <p className="text-xs my-2">{`By ${reporter?.datavalue}`}</p>
+        <p className="text-xs my-2">
+          {reporter?.datavalue ? `by ${reporter?.datavalue}` : ""}
+        </p>
       </div>
       <div className="flex  justify-self-end">
         <Link

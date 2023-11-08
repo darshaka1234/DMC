@@ -9,11 +9,13 @@ import NavBar from "./../components/common/NavBar";
 import Footer from "../components/common/Footer";
 import { convertDate } from "../components/home/NewsCard";
 import ListSection from "./../components/news/ListSection";
+import { useSelector } from "react-redux";
 
 const NewsPage = () => {
   const [detail, setDeatil] = useState([]);
   const { hash } = useParams();
   const navigate = useNavigate();
+  const openDrawer = useSelector((state) => state.news.openDrawer);
 
   useEffect(() => {
     (async () => {
@@ -26,7 +28,7 @@ const NewsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className={openDrawer ? "bg-gray-300" : ""}>
       <div className="mx-12 md:mx-24 lg:mx-52">
         <NavBar />
         {detail.map((item) => (
@@ -35,7 +37,7 @@ const NewsPage = () => {
             className="w-full flex sm:justify-between my-5"
           >
             <h3 className="text-gray-700 text-xs">
-              {item.meta_description.datavalue}
+              {`Home / ${item.meta_description.datavalue}`}
             </h3>
             <button
               className="text-blue-700 text-xs flex flex-row gap-3 items-center"
@@ -49,17 +51,21 @@ const NewsPage = () => {
       </div>
       {detail.map((item) => (
         <div key={item.hash.datavalue} className="w-full">
-          <img
-            className="w-full max-h-72"
-            src={item.cover_images.datavalue.map((i) => i.fileUrl)}
-          />
+          <div
+            className="h-80 bg-cover"
+            style={{
+              backgroundImage: `url(${item.cover_images.datavalue.map(
+                (i) => i.fileUrl
+              )})`,
+            }}
+          ></div>
         </div>
       ))}
-      <div className="flex flex-col lg:flex-row justify-center divide-x">
+      <div className="flex flex-col lg:flex-row justify-center sm:divide-x">
         {detail.map((item) => (
           <div key={item.hash.datavalue} className="max-w-2xl">
             <div className="flex flex-row">
-              <div className="mx-20 max-w-2xl">
+              <div className="mx-12 sm:mx-20 max-w-2xl">
                 <h1 className="my-5 font-medium text-3xl">
                   {item.title.datavalue}
                 </h1>
@@ -68,7 +74,15 @@ const NewsPage = () => {
                     <SlCalender className="self-center mr-3" />
                     <h3>{convertDate(item.news_date?.datavalue)}</h3>
                   </div>
-                  <h3 className="mx-5 font-medium text-xs">{`By ${item.reporter?.datavalue}`}</h3>
+
+                  <h3 className="mx-5 font-medium text-xs">
+                    {item.reporter?.datavalue
+                      ? `by ${item.reporter?.datavalue}`
+                      : ""}
+                  </h3>
+                </div>
+                <div className="btn btn-xs text-xs">
+                  {item.categories?.datavalue.map((i) => i.name?.datavalue)}
                 </div>
                 <hr className="my-5" />
                 <p
