@@ -41,7 +41,7 @@ const BodySection = () => {
       <div className="flex flex-col md:flex-row md:justify-between w-full">
         <div className="divide-x grid grid-flow-col gap-5 items-center">
           <p>Filter</p>
-          <div className="pl-5">
+          <div className="pl-5 flex flex-row gap-5">
             <MonthDropdown />
             <CategoryDropdown />
           </div>

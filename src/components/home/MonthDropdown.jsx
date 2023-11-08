@@ -3,6 +3,7 @@ import { monthArr } from "./rawdata";
 import { useDispatch } from "react-redux";
 import { replace } from "../../app/newsSlice";
 import { baseUrl } from "./BodySection";
+import { MdArrowDropUp, MdArrowDropDown } from "react-icons/md";
 import axios from "axios";
 
 const MonthDropdown = () => {
@@ -28,18 +29,21 @@ const MonthDropdown = () => {
             }
           });
         }
-        console.log("fi;", filteredNews);
+
         dispatch(replace(filteredNews));
       });
   };
 
   return (
-    <details className="dropdown ">
-      <summary className=" m-1" onClick={() => setOpen(true)}>
-        Month
-      </summary>
+    <div className=" ">
+      <div
+        className="flex flex-row items-center"
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        Month{open ? <MdArrowDropUp /> : <MdArrowDropDown />}
+      </div>
       {open && (
-        <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <ul className="absolute z-50 menu p-2 shadow bg-base-100 rounded-box w-52">
           {monthArr?.map((item) => (
             <li key={item.value}>
               <a onClick={() => handleClick(item.value)}>{item.name}</a>
@@ -47,7 +51,7 @@ const MonthDropdown = () => {
           ))}
         </ul>
       )}
-    </details>
+    </div>
   );
 };
 

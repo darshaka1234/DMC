@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { baseUrl } from "./BodySection";
 import { replace } from "../../app/newsSlice";
+import { MdArrowDropUp, MdArrowDropDown } from "react-icons/md";
 
 const CategoryDropdown = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,15 @@ const CategoryDropdown = () => {
   };
 
   return (
-    <details className="dropdown ">
-      <summary className=" m-1" onClick={() => setOpen(true)}>
-        Categories
-      </summary>
+    <div className=" ">
+      <div
+        className="flex flex-row items-center dropdown"
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        Select Category{open ? <MdArrowDropUp /> : <MdArrowDropDown />}
+      </div>
       {open && (
-        <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <ul className=" absolute z-50 menu p-2 shadow bg-base-100 rounded-box w-52">
           {categories?.map((item) => (
             <li key={item.name?.datavalue}>
               <a onClick={() => handleClick(item.hash?.datavalue)}>
@@ -45,7 +49,7 @@ const CategoryDropdown = () => {
           ))}
         </ul>
       )}
-    </details>
+    </div>
   );
 };
 

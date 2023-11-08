@@ -33,7 +33,7 @@ const NavBar = () => {
             <img src={name} />
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row  items-center">
+        <div className="flex flex-col sm:flex-row  sm:items-center">
           {detailsArray.map((item) => (
             <div
               key={item.name}

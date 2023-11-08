@@ -7,7 +7,7 @@ const Tile = ({ data }) => {
   return (
     <Link to={`/${data?.hash?.datavalue}`}>
       <div
-        className="flex flex-col rounded-lg h-full place-content-end p-3 bg-no-repeat bg-cover"
+        className="flex flex-col rounded-lg h-full place-content-end p-3 bg-no-repeat bg-cover "
         style={{
           backgroundImage: `url(${data?.thumbnail.datavalue.fileUrl})`,
         }}
