@@ -8,9 +8,14 @@ import CategoryDropdown from "./CategoryDropdown";
 import MonthDropdown from "./MonthDropdown";
 import Search from "./Search";
 import ListView from "./ListView";
+import dotenv from "dotenv";
 
 export const baseUrl =
   "https://showcase.dmc.smart360web.com/api/v1/news/getall?api_key=5cef0b93x6b269ec&api_user=UI_TEST_WEB";
+
+// dotenv.config();
+// export const baseUrl = process.env.REACT_APP_BASE_URL;
+console.log(baseUrl);
 
 const BodySection = () => {
   const dispatch = useDispatch();
@@ -68,12 +73,16 @@ const BodySection = () => {
           ))}
         </div>
       )}
-      <button
-        className=" bg-indigo-900 text-white rounded py-2 hover:bg-blue-700 w-24 text-xs "
-        onClick={handleLoadMore}
-      >
-        Load more
-      </button>
+      {newsData.length >= 24 ? (
+        <button
+          className=" bg-indigo-900 text-white rounded py-2 hover:bg-blue-700 w-24 text-xs "
+          onClick={handleLoadMore}
+        >
+          Load more
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
