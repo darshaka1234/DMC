@@ -56,7 +56,7 @@ const BodySection = () => {
         </div>
       </div>
       {gridView ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full">
           {newsData?.map((item) => (
             <NewsCard key={item.hash?.datavalue} data={item} />
           ))}

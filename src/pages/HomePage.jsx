@@ -6,7 +6,7 @@ import Footer from "../components/common/Footer";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col  mx-12 md:mx-24 lg:mx-52">
+    <div className="flex flex-col  justify-items-center mx-12 md:mx-24 lg:mx-52">
       <NavBar />
       <TileSection />
       <BodySection />

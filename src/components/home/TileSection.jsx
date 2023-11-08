@@ -16,18 +16,21 @@ const TileSection = () => {
   }, []);
 
   return (
-    <div className="grid grid-rows-2 grid-col-1 md:grid-col-2 xl:grid-flow-col gap-5 my-10">
-      <div className="row-span-2">
-        <Tile data={tileData[0]} />
-      </div>
-      <div className="">
-        <Tile data={tileData[3]} />
-      </div>
-      <div className="">
-        <Tile data={tileData[1]} />
-      </div>
-      <div className="row-start-1 row-end-3">
-        <Tile data={tileData[2]} />
+    <div className="h-full">
+      <h1 className="font-medium text-3xl mb-5 ">Latest News</h1>
+      <div className="grid grid-rows-2 grid-col-1 md:grid-col-2 xl:grid-flow-col gap-5 my-10  h-80">
+        <div className="row-span-2">
+          <Tile data={tileData[0]} />
+        </div>
+        <div className="">
+          <Tile data={tileData[3]} />
+        </div>
+        <div className="">
+          <Tile data={tileData[1]} />
+        </div>
+        <div className="row-start-1 row-end-3">
+          <Tile data={tileData[2]} />
+        </div>
       </div>
     </div>
   );
