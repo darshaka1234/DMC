@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   newsData: [],
+  openDrawer: false,
 };
 
 export const counterSlice = createSlice({
@@ -15,9 +16,12 @@ export const counterSlice = createSlice({
       const newArr = [...state.newsData, ...action.payload];
       state.newsData = newArr;
     },
+    clickDrawer: (state, action) => {
+      state.openDrawer = action.payload;
+    },
   },
 });
 
-export const { replace, append } = counterSlice.actions;
+export const { replace, append, clickDrawer } = counterSlice.actions;
 
 export default counterSlice.reducer;

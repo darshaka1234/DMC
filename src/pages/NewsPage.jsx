@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SlCalender } from "react-icons/sl";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { baseUrl } from "../components/home/BodySection";
 import NavBar from "./../components/common/NavBar";
@@ -82,7 +83,7 @@ const NewsPage = () => {
         ))}
         <ListSection />
       </div>
-      <hr className="my-5 -mx-52" />
+
       <div className="mx-12 md:mx-24 lg:mx-52">
         <Footer />
       </div>
